@@ -1,8 +1,8 @@
-# Search Tab in Omnibox
-
-<img src="search-tab-in-omnibox-32.png" width="45" align="left">
+# Search Tab in Omnibox <img src="search-tab-in-omnibox-32.png" width="45" align="left">
 
 Browser extension to search a tab in Omnibox
+
+<img src="https://github.com/stanaka/chrome-search-tab-in-omnibox/blob/master/screenshot.png?raw=true" width=640>
 
 # Install
 
@@ -10,7 +10,7 @@ TBD
 
 # Highlights
 
-TBD
+<img src="https://raw.githubusercontent.com/stanaka/chrome-search-tab-in-omnibox/master/screencast.gif">
 
 # FAQ
 
