@@ -57,11 +57,11 @@ chrome.omnibox.onInputChanged.addListener(
       })
 
       console.log(suggests);
-      var first = suggests.shift();
+      var first = suggests[0];
       chrome.omnibox.setDefaultSuggestion({
         description: first.description
       });
-      suggest(suggests);
+      suggest(suggests.slice(1));
     });
   });
 
@@ -78,6 +78,7 @@ chrome.omnibox.onInputEntered.addListener(
           chrome.tabs.update(tabs[0].id, {highlighted: true});
         });
       } else {
+        console.log(tabs);
         chrome.tabs.update(tabs[0].id, {highlighted: true});
       }
     });
