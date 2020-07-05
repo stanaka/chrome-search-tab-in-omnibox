@@ -1,6 +1,6 @@
 # Search Tab in Omnibox
 
-<img src="search-tab-in-omnibox-32icon.png" width="45" align="left">
+<img src="search-tab-in-omnibox-32.png" width="45" align="left">
 
 Browser extension to search a tab in Omnibox
 
