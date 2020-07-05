@@ -15,6 +15,13 @@ function removeFragment(string) {
   return string.replace(/#[^#]*/, '')
 }
 
+function switchTab(tab) {
+  chrome.tabs.update(tab.id, {highlighted: true});
+  if (!tab.currentWindow) {
+    chrome.windows.update(tab.windowId, {focused: true});
+  }
+}
+
 /*
 chrome.omnibox.onInputStarted.addListener(
   function() {
@@ -40,10 +47,13 @@ chrome.omnibox.onInputChanged.addListener(
         if (tab.title.toLowerCase().indexOf(text) != -1 || tab.url.toLowerCase().indexOf(text) != -1) {
           var desc = "";
           var title = encodeHTML(tab.title);
+          var url = encodeHTML(tab.url)
           
           var re = new RegExp("("+escapeRegex(text)+")","gi");
           title = title.replace(re, "<match>$1</match>");
-          desc += title + " <url>" + encodeHTML(tab.url) + "</url>";
+          url = url.replace(re, "<match>$1</match>");
+
+          desc += title + " <url>" + url + "</url>";
           suggests.push(
             {
               content: tab.url,
@@ -75,11 +85,11 @@ chrome.omnibox.onInputEntered.addListener(
         text = removeFragment(suggests[0].content)
         console.log(text);
         chrome.tabs.query({url: text}, function(tabs) {
-          chrome.tabs.update(tabs[0].id, {highlighted: true});
+          switchTab(tabs[0]);
         });
       } else {
         console.log(tabs);
-        chrome.tabs.update(tabs[0].id, {highlighted: true});
+        switchTab(tabs[0]);
       }
     });
   });
