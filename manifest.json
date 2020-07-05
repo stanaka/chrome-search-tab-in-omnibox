@@ -1,0 +1,26 @@
+{
+  "name": "Tab Search in Omnibox",
+  "description": "Type 't' plus a search term into the Omnibox to open a matched tab.",
+  "version": "1.0",
+  "author": "Shinji Tanaka",
+  "homepage_url": "https://github.com/stanaka/chrome-search-tab-in-omnibox",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "omnibox": { "keyword" : "t" },
+  "permissions": [ "tabs" ],
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": {
+      "16": "search-tab-in-omnibox-16.png",
+      "32": "search-tab-in-omnibox-32.png"
+      }
+  },
+  "icons": {
+    "16": "search-tab-in-omnibox-16.png",
+    "32": "search-tab-in-omnibox-32.png",
+    "48": "search-tab-in-omnibox-48.png",
+    "128": "search-tab-in-omnibox-128.png"
+  }
+}
