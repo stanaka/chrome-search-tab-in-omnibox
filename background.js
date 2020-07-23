@@ -16,10 +16,18 @@ function removeFragment(string) {
 }
 
 function switchTab(tab) {
-  chrome.tabs.update(tab.id, {highlighted: true});
   if (!tab.currentWindow) {
     chrome.windows.update(tab.windowId, {focused: true});
   }
+  chrome.tabs.query({highlighted: true}, function(highlightedTabs) {
+    chrome.tabs.update(tab.id, {highlighted: true});
+    if (!tab.currentWindow) {
+      // unhighlighted previous highlighted tab(s)
+      highlightedTabs.forEach(function(highlightedTab){
+        chrome.tabs.update(highlightedTab.id, {highlighted: false});
+      })
+    }
+  });
 }
 
 /*
